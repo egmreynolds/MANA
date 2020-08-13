@@ -1,9 +1,12 @@
+using MANA
+
 function main()
-	snpfilename = "plink.example"
-        phenotypesprefix = "phen.example"
-        outputfilename = "out.example"
+	dir = "/data/seq/edrey0/MANA/example/"
+	snpfilename = dir .* "plink.example"
+        phenotypesprefix = dir .* "phen.example"
+        outputfilename = dir .* "out.example"
         printchain = false
-        weightsfilename= "weights.example.txt"
+        weightsfilename= dir .* "weights.example.txt"
         interval = 10000000
         setsize = 1000
         type = "dominance"
