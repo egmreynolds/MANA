@@ -54,8 +54,7 @@ function get_maxlayerlimit(model)
     maxlayer = 1
     phenotypefiles = phenotypefiles[occursin.(basename(model.phenotypesprefix), phenotypefiles)]
     for file in phenotypefiles
-        filebits = split(file, ".")
-        n,layer = get_n_and_layer(x)
+        n,layer = get_n_and_layer(file)
         if n >  maxn
             maxn = n
             maxlayer = layer
