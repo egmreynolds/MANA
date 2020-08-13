@@ -4,4 +4,17 @@ authors = ["egmreynolds "]
 version = "0.1.0"
 
 [deps]
+BEDFiles = "6f44c9a6-7b0d-11e8-3270-d5b481c31be2"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
+Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
+IndexedTables = "6deec6e2-d858-57c5-ab9b-e6ca5bd20e43"
+JWAS = "c9a035f4-d403-5e6b-8649-6be755bc4798"
+JuliaDB = "a93385a2-3734-596a-9a66-3cfbb77141e6"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+OnlineStats = "a15396b6-48d5-5d58-9928-6d29437db91e"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
+Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
