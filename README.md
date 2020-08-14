@@ -9,22 +9,28 @@ MANA aims to provide functions to run non-additive GWAS models.
   Julia 1.1.0
 ### Julia dependencies
 ```
-BEDFiles
-JWAS
-BGZFStreams
-DataFrames
-JuliaDB
-IndexedTables
-OnlineStats
+BEDFiles, JWAS
+Distributed, DelimitedFiles, Statistics, Linear Algebra, Random, Distributions
+DataFrames, JuliaDB, IndexedTables, OnlineStats
 ```
 
 ## Installation Guide
-Clone repository:
-```git clone ${repositoryURL}```
+Add package:
+```pkg> add https://github.com/egmreynolds/MANA.git```
 
-Add to julia script:
-```include("MANA.jl")```
+Use package:
+```using MANA```
 
-Install using Julia package manager is in progress
+## Example
+Minimal example to run non-additive GWAS
+
+``` julia example.jl ```
+
 ## License
 This project is covered under the MIT License
+
+## Future Updates
+Fix issue where initial phenotype LOSO segment does not exist
+
+Add examples for pedigree models
+
