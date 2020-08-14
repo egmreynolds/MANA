@@ -18,6 +18,9 @@ DataFrames, JuliaDB, IndexedTables, OnlineStats
 Add package:
 ```pkg> add https://github.com/egmreynolds/MANA.git```
 
+May need to install BEDFiles
+```pkg> add https://github.com/dmbates/BEDFiles.jl.git```
+
 Use package:
 ```using MANA```
 
