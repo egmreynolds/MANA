@@ -29,6 +29,9 @@ Minimal example to run non-additive GWAS
 
 ``` julia example.jl ```
 
+## How to run
+Example.jl provides guidelines on how to use MANA functions to run non-additive GWAS. 
+
 ## License
 This project is covered under the MIT License
 
