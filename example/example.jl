@@ -1,7 +1,7 @@
 using MANA
 
 function main()
-	dir = "/data/seq/edrey0/MANA/example/"
+	dir = "~/MANA/example/" # May need to be edited to directory of interest
 	snpfilename = dir .* "plink.example"
         phenotypesprefix = dir .* "phen.example"
         outputfilename = dir .* "out.example"
