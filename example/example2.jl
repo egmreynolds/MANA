@@ -2,7 +2,7 @@ using MANA
 using JuliaDB, JWAS, DataFrames
 
 function main()
-	dir="/data/seq/edrey0/MANA/example/"
+	dir="~/MANA/example/"
         snpfilename=dir .* "plink.example"
         phenofilename="phen.example2.txt"
         pedfilename="ped.example2.csv"
