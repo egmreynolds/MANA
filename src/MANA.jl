@@ -36,7 +36,7 @@ export run_spliceQTL
 export run_pedigree_model_multirecord
 export make_genotype_table
 export generate_genotypeclass_columns
-
+export center_phenotype
 
 
 end
