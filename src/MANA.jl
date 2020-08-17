@@ -1,7 +1,6 @@
 module MANA
 # Packge Main for MANA GWAS package
-using Distributed, DelimitedFiles, Statistics, LinearAlgebra, Random, SparseArrays, BEDFiles, Distributions
-using JuliaDB, IndexedTables, OnlineStats, JWAS, DataFrames
+using Distributed, DelimitedFiles, Statistics, LinearAlgebra, Random, SparseArrays, BEDFiles, Distributions, JuliaDB, IndexedTables, OnlineStats, JWAS, DataFrames
 #
 include("types.jl")
 include("read/read.jl")
@@ -35,5 +34,9 @@ export create_yk_loso
 export run_pedigree_model
 export run_spliceQTL
 export run_pedigree_model_multirecord
+export make_genotype_table
+export generate_genotypeclass_columns
+
+
 
 end
