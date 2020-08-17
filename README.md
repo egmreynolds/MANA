@@ -36,6 +36,7 @@ Minimal example to run pedigree models with JWAS
 
 ## How to run
 example.jl provides guidelines on how to use MANA functions to run non-additive GWAS. 
+
 example2.jl provides a guide on how to use MANA to run pedigree-based models.
 
 ## License
