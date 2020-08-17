@@ -29,14 +29,18 @@ Minimal example to run non-additive GWAS
 
 ``` julia example.jl ```
 
+Minimal example to run pedigree models with JWAS
+
+``` julia example2.jl ```
+
+
 ## How to run
-Example.jl provides guidelines on how to use MANA functions to run non-additive GWAS. 
+example.jl provides guidelines on how to use MANA functions to run non-additive GWAS. 
+example2.jl provides a guide on how to use MANA to run pedigree-based models.
 
 ## License
 This project is covered under the MIT License
 
 ## Future Updates
 Fix issue where initial phenotype LOSO segment does not exist
-
-Add examples for pedigree models
 
