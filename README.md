@@ -18,6 +18,9 @@ DataFrames, JuliaDB, IndexedTables, OnlineStats
 Add package:
 ```pkg> add https://github.com/egmreynolds/MANA.git```
 
+May need to install BEDFiles
+```pkg> add https://github.com/dmbates/BEDFiles.jl.git```
+
 Use package:
 ```using MANA```
 
@@ -25,6 +28,9 @@ Use package:
 Minimal example to run non-additive GWAS
 
 ``` julia example.jl ```
+
+## How to run
+Example.jl provides guidelines on how to use MANA functions to run non-additive GWAS. 
 
 ## License
 This project is covered under the MIT License
