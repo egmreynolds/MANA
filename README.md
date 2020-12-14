@@ -33,11 +33,17 @@ Minimal example to run pedigree models with JWAS
 
 ``` julia example2.jl ```
 
+## Larger example
+QMSim example
+
+``` julia example_sim.jl ```
 
 ## How to run
 example.jl provides guidelines on how to use MANA functions to run non-additive GWAS. 
 
 example2.jl provides a guide on how to use MANA to run pedigree-based models.
+
+example_sim.jl provides a guide on how to use MANA to run non-additive GWAS for a larger simulated dataset.
 
 ## License
 This project is covered under the MIT License
