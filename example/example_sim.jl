@@ -13,12 +13,13 @@
 using MANA
 # create adjusted phenotypes
 function make_loso_phenotypes()
+  dir = "/path/to/files"
   chr=26
   interval=10000000
-  phenotypesfilename=phen_8.1.txt
-  markersfileprefix=gen12.1
-  alphasfilename=other_13.txt
-  outputprefix=adjusted_phenotype.chr26
+  phenotypesfilename= dir .* "phen_8.1.txt"
+  markersfileprefix=dir .* "gen12.1"
+  alphasfilename=dir .* "other_13.txt"
+  outputprefix=dir .* "adjusted_phenotype.chr26"
   REGION=0
   CODE="LOSO"
   ycreator = build_ycreator()

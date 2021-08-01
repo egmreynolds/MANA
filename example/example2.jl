@@ -4,10 +4,10 @@ using JuliaDB, JWAS, DataFrames
 function main()
 	dir="~/MANA/example/"
         snpfilename=dir .* "plink.example"
-        phenofilename="phen.example2.txt"
-        pedfilename="ped.example2.csv"
+        phenofilename=dir .* "phen.example2.txt"
+        pedfilename=dir .* "ped.example2.csv"
         repeated_measures=false
-        outputfilename="out.example2.txt"
+        outputfilename=dir .* "out.example2.txt"
         Rvar=0.7 #total, not a proportion
         Gvar=0.3 #total, not a proportion
 	Pvar=0

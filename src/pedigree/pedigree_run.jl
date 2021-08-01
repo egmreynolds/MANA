@@ -20,7 +20,7 @@ function run_pedigree_model_multirecord(tbl, markerInfo, pedigree, Rvar, Gvar, P
     for term in printcovars
         outputMCMCsamples(model, term)
     end
-    out = runMCMC(model, tbl, output_samples_frequency = 10, chain_length = chainlength, output_samples_file = outputfilename)
+    out = runMCMC(model, tbl, output_samples_frequency = 10, chain_length = chainlength, output_folder = outputfilename)
 end
 
 function run_pedigree_model(tbl, markerInfo, pedigree, Rvar, Gvar; chainlength = 10000, outputfilename = "MCMC_samples", covariates = [])
@@ -43,7 +43,7 @@ function run_pedigree_model(tbl, markerInfo, pedigree, Rvar, Gvar; chainlength =
     for term in printcovars
         outputMCMCsamples(model, term)
     end
-    out = runMCMC(model, tbl, output_samples_frequency = 10, chain_length = chainlength, output_samples_file = outputfilename)
+    out = runMCMC(model, tbl, output_samples_frequency = 10, chain_length = chainlength, output_folder = outputfilename)
 end
 
 function run_pedigree_model_eQTL(tbl, pedigree, Rvar, Gvar; chainlength = 10000, freq = 10, outputfilename = "eQTL.MCMC_samples")
@@ -54,7 +54,7 @@ function run_pedigree_model_eQTL(tbl, pedigree, Rvar, Gvar; chainlength = 10000,
     set_covariate(model, snp)
     set_random(model,"anml_key",pedigree, Gvar)
     outputMCMCsamples(model, snp)
-    out = runMCMC(model, tbl, output_samples_frequency = freq, chain_length = chainlength, output_samples_file = outputfilename)
+    out = runMCMC(model, tbl, output_samples_frequency = freq, chain_length = chainlength, output_folder = outputfilename)
 end
 
 function run_spliceQTL(snp_data, pheno_data, pedigree, Rvar, Gvar; chainlength = 10000, freq = 10, outdir = "MCMC_samples")
