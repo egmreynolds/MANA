@@ -75,7 +75,7 @@ end
 function calc_dominance_stats!(submodel, testsnp, i)
     cellsums, cellcounts, zero_cells = calc_betas(testsnp.genotypes[:], submodel.phenotype.trait, submodel.n, submodel.weights.rinverse)
     if zero_cells
-        submodel.output_stats[i,:] = [-9 -9 -9 -9 -9 -9 -9 -9 -9 -9]
+        submodel.output_stats[i,:] = fill(-9, 23)
         return
     end
     invcellcounts = 1 ./ cellcounts
@@ -88,23 +88,46 @@ function calc_dominance_stats!(submodel, testsnp, i)
     if submodel.printchain
 	writedlm(submodel.output_filename .* "." .* submodel.snpset.markerInfo[i,3] .* ".tsv", beta_plaus', '\t')
     end
-    beta = submodel.K*beta_plaus
+    
     maf = sum(Array{Int64,1}(testsnp.genotypes[:]))/(2*submodel.n)
+    K = Array{Float64,2}([1.0 0.0 0.0
+    -0.5 0.0 0.5
+    -0.5 1.0 -0.5
+    maf-1 1-2*maf maf
+    -1.0 1.0 0.0
+    -1.0 0.0 1.0])
+
+    beta = K*beta_plaus		
+
     aview = view(beta, 2, :)
     dview = view(beta, 3, :)
+    #
+    iview = view(beta, 1, :)
+    alphaview = view(beta, 4, :)
+    hetview = view(beta, 5, :)
+    homview = view(beta, 6, :)
+    mean_i = mean(iview)
+    mean_alpha = mean(alphaview)
+    var_alpha = var(alphaview)
+    mean_het = mean(hetview)
+    var_het = var(hetview)
+    mean_hom = mean(homview)
+    var_hom = var(homview)
+    #
     mean_a = mean(aview)
     var_a = var(aview)
     mean_d = mean(dview)
     var_d = var(dview)
-    submodel.output_stats[i,:] = [maf submodel.k mean_a var_a mean_d var_d 0 0 0 0]
+    submodel.output_stats[i,:] = [maf submodel.k mean_a var_a mean_d var_d 0 0 0 0 mean_i mean_alpha var_alpha 0 0 mean_het var_het mean_hom var_hom 0 0 0 0]
 end
 
 function calc_additive_only_stats!(submodel, testsnp, i)
     X = [ones(submodel.n) testsnp.genotypes[:]]
+    invXTX = 0
     try
         invXTX = inv(X' * (submodel.weights.rinverse .* X))
     catch
-        submodel.output_stats[i,:] = [maf submodel.k mean_a var_a 0 0]
+        submodel.output_stats[i,:] = fill(-9, 6)
         return
     end
     XTY = (submodel.weights.rinverse .* X)' * submodel.phenotype.trait
