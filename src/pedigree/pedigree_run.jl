@@ -1,9 +1,6 @@
 # Functions to run pedigree models
 function run_pedigree_model_multirecord(tbl, markerInfo, pedigree, Rvar, Gvar, Pvar; chainlength = 10000, outputfilename = "MCMC_samples", covariates = [])
-    namesG11 = markerInfo[:,3] .* "_" .* markerInfo[:,1] .* "_" .* markerInfo[:,2] .* "_G11"
-    namesG12 = markerInfo[:,3] .* "_" .* markerInfo[:,1] .* "_" .* markerInfo[:,2] .* "_G12"
-    namesG22 = markerInfo[:,3] .* "_" .* markerInfo[:,1] .* "_" .* markerInfo[:,2] .* "_G22"
-    covars = [namesG11[1]; namesG12[1]; namesG22[1]; covariates]
+    covars = ["G11"; "G12"; "G22"; covariates]
     printcovars = [covars; "anml_keyx"]
     eqcovars = [covars; "anml_key"; "anml_keyx"]
     model_equation = "yd_trait ="
@@ -24,10 +21,7 @@ function run_pedigree_model_multirecord(tbl, markerInfo, pedigree, Rvar, Gvar, P
 end
 
 function run_pedigree_model(tbl, markerInfo, pedigree, Rvar, Gvar; chainlength = 10000, outputfilename = "MCMC_samples", covariates = [])
-    namesG11 = markerInfo[:,3] .* "_" .* markerInfo[:,1] .* "_" .* markerInfo[:,2] .* "_G11"
-    namesG12 = markerInfo[:,3] .* "_" .* markerInfo[:,1] .* "_" .* markerInfo[:,2] .* "_G12"
-    namesG22 = markerInfo[:,3] .* "_" .* markerInfo[:,1] .* "_" .* markerInfo[:,2] .* "_G22"
-    covars = [namesG11[1]; namesG12[1]; namesG22[1]; covariates]
+    covars = ["G11"; "G12"; "G22"; covariates]
     printcovars = covars
     eqcovars = [covars; "anml_key"]
     model_equation = "yd_trait ="
