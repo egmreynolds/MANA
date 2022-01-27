@@ -38,7 +38,7 @@ end
 function inititate_submodel!(submodel)
     submodel.rng = MersenneTwister()
     submodel.K = get_1loci_k()    
-    submodel.output_stats = zeros(Float64,submodel.m, 10)
+    submodel.output_stats = zeros(Float64,submodel.m, 23)
     if submodel.type == "additive"
         submodel.output_stats = zeros(Float64, submodel.m, 6)
         submodel.K = 0
