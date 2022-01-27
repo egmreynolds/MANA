@@ -58,5 +58,5 @@ function get_mcmc_diagnostics(alphas, outputprefix)
     writedlm(outputprefix .* ".geweke.stats", geweke_by_marker)
 
     geweke_pass = sum(geweke_pvalues .> 0.05)
-    writedlm(outputprefix .* "geweke.summary", hcat(alphas.m, geweke_pass, geweke_pass/alphas.m))
+    writedlm(outputprefix .* ".geweke.summary", hcat(alphas.m, geweke_pass, geweke_pass/alphas.m))
 end
