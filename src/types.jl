@@ -114,3 +114,8 @@ mutable struct id_dataset
         header
         data
 end
+
+mutable struct Covariates{I<:Array{String,1}, x<:Array{Float64,2}}
+    IID::I
+    X::x
+end

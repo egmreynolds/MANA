@@ -34,3 +34,8 @@ function setup_phenotypes_full(model, phenotypesfilename, weightsfilename)
     get_phenotype_intersect!(model.phenotypes, model.phenoOrder)
     get_weight_intersect!(model.weights, model.weightOrder)
 end
+
+function read_covariates(covarfile)
+    covariates = readdlm(covarfile, ' ', Float64, '\n'; header = false)
+    return Covariates(map(x->string(Int64(x)), covariates[:,1]), covariates[:,2:end])
+end

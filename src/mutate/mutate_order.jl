@@ -32,3 +32,8 @@ function get_weight_intersect!(weights::Weights, new_order::Array{Int64,1})
     weights.rinverse = weights.rinverse[new_order]
     weights.IID = weights.IID[new_order]
 end
+
+function get_covariate_intersect!(covariates::Covariates, new_order::Array{Int64,1})
+    covariates.IID = covariates.IID[new_order]
+    covariates.X = covariates.X[new_order, :]
+end
