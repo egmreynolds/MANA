@@ -36,6 +36,6 @@ function setup_phenotypes_full(model, phenotypesfilename, weightsfilename)
 end
 
 function read_covariates(covarfile)
-    covariates = readdlm(covarfile, ' ', Float64, '\n'; header = false)
+    covariates = readdlm(covarfile, '\t', Float64, '\n'; header = false)
     return Covariates(map(x->string(Int64(x)), covariates[:,1]), covariates[:,2:end])
 end
