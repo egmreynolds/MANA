@@ -39,5 +39,9 @@ export generate_genotypeclass_columns
 export center_phenotype
 # additional
 export build_alphas
+export covariate_setup
+export add_filtered_alphas_AD
+export add_markers_gensel_AD
+export create_yk_loso_AD
 
 end
