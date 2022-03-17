@@ -89,3 +89,26 @@ function fill_missing_genotypes!(ycreator)
         end
     end
 end
+
+# Read and add A & D gensel alphas effects to ycreator. Ordered: All A, then All D.
+function add_filtered_alphas_AD(ycreator, alphasfilename)
+    alphas = readdlm(alphasfilename, '\t', Any, '\n'; header = false)
+    alphas = alphas[[collect(1:2:size(alphas, 1)); collect(2:2:size(alphas, 1))],:] # Changes A1,D1,A2,D2,... order into A1,A2,...,D1,D2,... order.
+    ycreator.alphas = Alphas(alphas[:,1], alphas[:,2:end], 0 ,0)
+    ycreator.alphas.m = size(ycreator.alphas.markerNames, 1)
+    ycreator.alphas.k = size(ycreator.alphas.alphas, 2)
+    ycreator.alphas.markerNames = map(x -> String(x[1]), rsplit.(ycreator.alphas.markerNames, '_'; limit = 2)) .* [fill("_A", Int64(ycreator.alphas.m/2)); fill("_HET", Int64(ycreator.alphas.m/2))]    # remove "_HET", "_A", "_T", etc.
+end
+
+# Read and add A & D gensel genoytpes/markers to ycreator. Ordered: All A, then All D.
+function add_markers_gensel_AD(ycreator, markersfileprefix)
+    # read bim, fam, bed files
+    info = read_bim_file(markersfileprefix .* ".bim")
+    m = size(info, 1)
+    info = vcat(info, info)
+    info[:,3] = info[:,3] .* [fill("_A", m); fill("_HET", m)]
+    iid = read_fam_file(markersfileprefix .* ".fam")
+    bed = read_bed_file(markersfileprefix .* ".bed") # remove @time
+    genselvalues = hcat((bedvals[bed] .- 1).*-1, bed .== 0x02) # part one is Additive, part 2 is dominance
+    ycreator.genselmarkers = GenselMarkers(iid, info, genselvalues)
+end
